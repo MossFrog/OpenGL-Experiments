@@ -1,0 +1,17 @@
+﻿Build started 4.12.2016 17:26:43.
+     1>Project "C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\openGL.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SOIL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\GLEW\include" /I"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\GLFW\include" /I"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\Include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\thinkpad\documents\visual studio 2013\projects\opengl\main.cpp(203): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\thinkpad\documents\visual studio 2013\projects\opengl\main.cpp(204): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\thinkpad\documents\visual studio 2013\projects\opengl\main.cpp(225): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\Debug\openGL.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\GLEW\lib\Release\Win32" /LIBPATH:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\GLFW\lib-vc2013" /LIBPATH:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\\SOIL" opengl32.lib glew32s.lib glfw3.lib "SOIL.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\Debug\openGL.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\Debug\openGL.lib" /MACHINE:X86 Debug\Main.obj
+         openGL.vcxproj -> C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\Debug\openGL.exe
+     1>Done Building Project "C:\Users\Thinkpad\documents\visual studio 2013\Projects\openGL\openGL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.85
