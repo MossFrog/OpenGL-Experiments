@@ -17,7 +17,7 @@ using namespace std;
 
 //-- Global Defínitions --//
 const GLint WIDTH = 800, HEIGHT = 600;
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraPos = glm::vec3(0.0f, 5.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -88,14 +88,14 @@ int main()
 	//-- Vertex and Buffer Data --//
 
 	//-- Cube Vertex Array Definition --//
-	GLfloat vertices[] = {
+	GLfloat PlaneVertices[] = {
 
 		-10.0f, -0.5f, -10.0f, 0.0f, 0.0f,
-		10.0f, -0.5f, -10.0f, 10.0f, 10.0f,
-		10.0f, -0.5f, 10.0f, 10.0f, 0.0f,
-		10.0f, -0.5f, 10.0f, 10.0f, 0.0f,
-		-10.0f, -0.5f, 10.0f, 0.0f, 0.0f,
-		-10.0f, -0.5f, -10.0f, 0.0f, 10.0f
+		10.0f, -0.5f, -10.0f, 10.0f, 0.0f,
+		10.0f, -0.5f, 10.0f, 10.0f, 10.0f,
+		10.0f, -0.5f, 10.0f, 10.0f, 10.0f,
+		-10.0f, -0.5f, 10.0f, 0.0f, 10.0f,
+		-10.0f, -0.5f, -10.0f, 0.0f, 0.0f
 	};
 
 	//-- Not used yet --//
@@ -118,7 +118,7 @@ int main()
 	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(PlaneVertices), PlaneVertices, GL_STATIC_DRAW);
 
 	//-- Position Attribute of the Vertices --//
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
@@ -178,7 +178,18 @@ int main()
 		GLfloat radius = 10.0f;
 		GLfloat camX = sin(glfwGetTime()) * radius;
 		GLfloat camZ = cos(glfwGetTime()) * radius;
+
+		GLfloat yaw = 0.0f;
+		GLfloat pitch = -45.0f;
+
+		glm::vec3 front;
+		front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+		front.y = sin(glm::radians(pitch));
+		front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+		cameraFront = glm::normalize(front);
+
 		view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+
 		//-- Projection --//
 		glm::mat4 projection;
 		projection = glm::perspective(45.0f, (GLfloat)WIDTH / (GLfloat)HEIGHT, 0.1f, 100.0f);
@@ -225,9 +236,9 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	GLfloat cameraSpeed = 0.05f;
 	if (key == GLFW_KEY_W)
-		cameraPos += cameraSpeed * cameraFront;
+		cameraPos.x += cameraSpeed;
 	if (key == GLFW_KEY_S)
-		cameraPos -= cameraSpeed * cameraFront;
+		cameraPos.x -= cameraSpeed;
 	if (key == GLFW_KEY_A)
 		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	if (key == GLFW_KEY_D)
